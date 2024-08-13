@@ -1,0 +1,213 @@
+
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster -name=esquenta
+Command 'kind' not found, did you mean:
+  command 'kfind' from snap kfind (24.05.2)
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+See 'snap info <snapname>' for additional versions.
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster
+Command 'kind' not found, did you mean:
+  command 'kfind' from snap kfind (24.05.2)
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+See 'snap info <snapname>' for additional versions.
+operador@dell-g15-5511:~/Documents/projects/K8S$ docker --version
+Docker version 27.1.1, build 6312585
+operador@dell-g15-5511:~/Documents/projects/K8S$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    97  100    97    0     0    332      0 --:--:-- --:--:-- --:--:--   332
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 6304k  100 6304k    0     0  1778k      0  0:00:03  0:00:03 --:--:-- 2507k
+[sudo] password for operador: 
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind --version
+kind version 0.20.0
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster --name=esquenta
+ERROR: failed to create cluster: failed to list nodes: command "docker ps -a --filter label=io.x-k8s.kind.cluster=esquenta --format '{{.Names}}'" failed with error: exit status 1
+Command Output: Cannot connect to the Docker daemon at unix:///home/operador/.docker/desktop/docker.sock. Is the docker daemon running?
+operador@dell-g15-5511:~/Documents/projects/K8S$ sudo systemctl start docker
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster --name=esquenta
+ERROR: failed to create cluster: failed to list nodes: command "docker ps -a --filter label=io.x-k8s.kind.cluster=esquenta --format '{{.Names}}'" failed with error: exit status 1
+Command Output: Cannot connect to the Docker daemon at unix:///home/operador/.docker/desktop/docker.sock. Is the docker daemon running?
+operador@dell-g15-5511:~/Documents/projects/K8S$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2024-08-13 04:55:49 -03; 43min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 1824 (dockerd)
+      Tasks: 54
+     Memory: 129.9M
+        CPU: 1.014s
+     CGroup: /system.slice/docker.service
+             └─1824 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.240757654-03:00" level=warning msg="error locating sand>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.240786588-03:00" level=warning msg="error locating sand>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.240817723-03:00" level=warning msg="error locating sand>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.240843122-03:00" level=warning msg="error locating sand>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.240867609-03:00" level=warning msg="error locating sand>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.241499423-03:00" level=info msg="Loading containers: do>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.259896637-03:00" level=info msg="Docker daemon" commit=>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.260412323-03:00" level=info msg="Daemon has completed i>
+Aug 13 04:55:49 dell-g15-5511 dockerd[1824]: time="2024-08-13T04:55:49.289602495-03:00" level=info msg="API listen on /run/doc>
+Aug 13 04:55:49 dell-g15-5511 systemd[1]: Started Docker Application Container Engine.
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster --name=esquenta
+Creating cluster "esquenta" ...
+ ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
+ ✓ Preparing nodes 📦  
+ ✓ Writing configuration 📜 
+ ✓ Starting control-plane 🕹️ 
+ ✓ Installing CNI 🔌 
+ ✓ Installing StorageClass 💾 
+Set kubectl context to "kind-esquenta"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-esquenta
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl cluster-info --context kind-esquenta
+Command 'kubectl' not found, but can be installed with:
+sudo snap install kubectl
+operador@dell-g15-5511:~/Documents/projects/K8S$ sudo snap install kubectl
+error: This revision of snap "kubectl" was published using classic confinement and thus may perform
+       arbitrary system changes outside of the security sandbox that snaps are usually confined to,
+       which may put your system at risk.
+
+       If you understand and want to proceed repeat the command including --classic.
+operador@dell-g15-5511:~/Documents/projects/K8S$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   138  100   138    0     0    578      0 --:--:-- --:--:-- --:--:--   579
+100 49.0M  100 49.0M    0     0  2812k      0  0:00:17  0:00:17 --:--:-- 3405k
+operador@dell-g15-5511:~/Documents/projects/K8S$ chmod +x ./kubectl
+operador@dell-g15-5511:~/Documents/projects/K8S$ sudo mv ./kubectl /usr/local/bin/kubectl
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl version --client
+Client Version: v1.30.3
+Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl cluster-info --context kind-esquenta
+Kubernetes control plane is running at https://127.0.0.1:41633
+CoreDNS is running at https://127.0.0.1:41633/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+operador@dell-g15-5511:~/Documents/projects/K8S$ code ~/.kube/config
+operador@dell-g15-5511:~/Documents/projects/K8S$ 
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster -name=esquenta
+Command 'kind' not found, did you mean:
+  command 'kfind' from snap kfind (24.05.2)
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+See 'snap info <snapname>' for additional versions.
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster
+Command 'kind' not found, did you mean:
+  command 'kfind' from snap kfind (24.05.2)
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+See 'snap info <snapname>' for additional versions.
+operador@dell-g15-5511:~/Documents/projects/K8S$ docker --version
+Docker version 27.1.1, build 6312585
+operador@dell-g15-5511:~/Documents/projects/K8S$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    97  100    97    0     0    332      0 --:--:-- --:--:-- --:--:--   332
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 6304k  100 6304k    0     0  1778k      0  0:00:03  0:00:03 --:--:-- 2507k
+[sudo] password for operador: 
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind --version
+kind version 0.20.0
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster --name=esquenta
+ERROR: failed to create cluster: failed to list nodes: command "docker ps -a --filter label=io.x-k8s.kind.cluster=esquenta --format '{{.Names}}'" failed with error: exit status 1
+Command Output: Cannot connect to the Docker daemon at unix:///home/operador/.docker/desktop/docker.sock. Is the docker daemon running?
+operador@dell-g15-5511:~/Documents/projects/K8S$ sudo systemctl start docker
+operador@dell-g15-5511:~/Documents/projects/K8S$ kind create cluster --name=esquenta
+ERROR: failed to create cluster: failed to list nodes: command "docker ps -a --filter label=io.x-k8s.kind.cluster=esquenta --format '{{.Names}}'" failed with error: exit status 1
+Command Output: Cannot connect to the Docker daemon at unix:///home/operador/.docker/desktop/docker.sock. Is the docker daemon running?
+operador@dell-g15-5511:~/Documents/projects/K8S$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2024-08-13 04:55:49 -03; 43min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 1824 (dockerd)
+      Tasks: 54
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get all
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   13m
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get nodes
+NAME                     STATUS   ROLES           AGE   VERSION
+esquenta-control-plane   Ready    control-plane   13m   v1.27.3
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f pod.yaml
+pod/nginx created
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get pods
+NAME    READY   STATUS    RESTARTS   AGE
+nginx   1/1     Running   0          62s
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl port-forward pod/nginx 9000:80
+Forwarding from 127.0.0.1:9000 -> 80
+Forwarding from [::1]:9000 -> 80
+Handling connection for 9000
+Handling connection for 9000
+
+^Coperador@dell-g15-5511:~/Documents/projects/K8S$ kubectl delete pod nginx
+pod "nginx" deleted
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get pods
+No resources found in default namespace.
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+pod/nginx created
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get replicaset
+No resources found in default namespace.
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+pod/nginx unchanged
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+Error from server (BadRequest): error when creating "replicaset.yaml": ReplicaSet in version "v1" cannot be handled as a ReplicaSet: strict decoding error: unknown field "spec.templetes"
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+Error from server (BadRequest): error when creating "replicaset.yaml": ReplicaSet in version "v1" cannot be handled as a ReplicaSet: strict decoding error: unknown field "spec.templetes"
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+Error from server (BadRequest): error when creating "replicaset.yaml": ReplicaSet in version "v1" cannot be handled as a ReplicaSet: strict decoding error: unknown field "spec.templete"
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+replicaset.apps/nginx-replicaset created
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get replicaset
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-replicaset   1         1         1       8s
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get pods
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx                    1/1     Running   0          4m56s
+nginx-replicaset-5wbgl   1/1     Running   0          34s
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl delete pod nginx-replicaset-5wbgl
+pod "nginx-replicaset-5wbgl" deleted
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get pods
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx                    1/1     Running   0          6m10s
+nginx-replicaset-kr7zt   1/1     Running   0          10s
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl apply -f replicaset.yaml 
+replicaset.apps/nginx-replicaset configured
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl delete pod nginx-replicaset-kr7zt
+pod "nginx-replicaset-kr7zt" deleted
+operador@dell-g15-5511:~/Documents/projects/K8S$ kubectl get pods
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx                    1/1     Running   0          7m40s
+nginx-replicaset-92n7n   1/1     Running   0          19s
+nginx-replicaset-btgpw   1/1     Running   0          19s
+nginx-replicaset-ff2zx   1/1     Running   0          19s
+nginx-replicaset-j965w   1/1     Running   0          19s
+nginx-replicaset-lh7sd   1/1     Running   0          19s
+nginx-replicaset-m5x7k   1/1     Running   0          5s
+nginx-replicaset-mkphn   1/1     Running   0          19s
+nginx-replicaset-qtl6z   1/1     Running   0          19s
+nginx-replicaset-rgrfk   1/1     Running   0          19s
+nginx-replicaset-vhgtc   1/1     Running   0          19s
+operador@dell-g15-5511:~/Documents/projects/K8S$ 
+
+
+https://www.youtube.com/watch?v=cDFcrusO3ak
