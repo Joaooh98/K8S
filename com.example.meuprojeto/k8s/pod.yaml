@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: meuprojeto-pod
+spec:
+  containers:
+  - name: meuprojeto-container
+    image: meuprojeto-jvm
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 8080
+
