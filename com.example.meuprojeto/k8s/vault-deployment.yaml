@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: vault
-        image: vault:latest
+        image: hashicorp/vault:latest
         ports:
         - containerPort: 8200
         env:
