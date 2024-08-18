@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: meuprojeto-pod
+  labels:
+    app: nginx-p
 spec:
   containers:
   - name: meuprojeto-container
@@ -9,4 +11,3 @@ spec:
     imagePullPolicy: Never
     ports:
     - containerPort: 8080
-
